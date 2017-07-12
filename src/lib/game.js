@@ -12,10 +12,10 @@ export const guess = (id, number) =>
 		headers: {
 			 username: window.id
 		},
-		body: {
-			number
+		data: {
+			number: parseInt(number, 10)
 		}
-	}).then(data => data.guessStatus);
+	}).then(data => data.data.guessStatus);
 
 
 export const getResults = (id) =>
@@ -25,7 +25,7 @@ export const getResults = (id) =>
 		headers: {
 			 username: window.id
 		}
-	}).then(data => data.game);
+	}).then(data => data.data.game);
 
 
 export const createGame = () =>

@@ -1,18 +1,21 @@
 import { h, Component } from 'preact';
 import Input from '../../components/Input';
+import { route } from 'preact-router';
 import Button from '../../components/Button';
 import ControlButton from '../../components/ControlButton';
 import style from './style';
 import Exit from '../../assets/icons/exit.svg';
 import Pause from '../../assets/icons/pause.svg';
 import SoundOn from '../../assets/icons/sound-on.svg';
+import logo from '../../assets/logo.svg';
 import { createGame, guess } from '../../lib/game';
 
 class Game extends Component {
 
 	state = {
 		number: null,
-		gameId: null
+		gameId: null,
+		status: null
 	}
 
 	// gets called when this route is navigated to
@@ -26,14 +29,20 @@ class Game extends Component {
 	};
 
 	check = () => {
-		console.log('this.state.number', this.state.number);
-		guess(this.state.gameId, this.state.number).then(data => console.log(data));
+		guess(this.state.gameId, this.state.number).then(status => this.setState({ status }));
 	}
 
 	// Note: `user` comes from the URL, courtesy of our router
 	render() {
 		return (
 			<div class={style.profile}>
+				<img src={logo} class={style.logo} />
+				<h1>
+					{!this.state.status && 'Em que numero estou a pensar ?'}
+					{this.state.status === 'GREATER' && 'O numero é maior que esse'}
+					{this.state.status === 'MINOR' &&  'O numero é menor que esse'}
+					{this.state.status === 'EQUAL' && route(`/win/${this.state.gameId}`)}
+				</h1>
 				<Input onChange={this.setNumber} />
 				<Button clickHandler={this.check} buttonText="Submeter" />
 				<div className={style.controlButtonsContainer} >

@@ -21,7 +21,7 @@ export default class App extends Component {
 				<Router onChange={this.handleRoute}>
 					<Home path="/" />
 					<Game path="/game" />
-					<Win path="/win" />
+					<Win path="/win/:gameId" />
 				</Router>
 			</div>
 		);

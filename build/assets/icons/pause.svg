@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="12px" height="15px" viewBox="0 0 12 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.1 (43504) - http://www.bohemiancoding.com/sketch -->
+    <title>pause</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="pause/default" transform="translate(-16.000000, -15.000000)">
+            <rect id="Rectangle-3" fill-opacity="0.333276721" fill="#000000" x="0" y="0" width="43" height="43" rx="2"></rect>
+            <path d="M16,30 L16,15 L19.703125,15 L19.703125,30 L16,30 Z M24.296875,30 L24.296875,15 L28,15 L28,30 L24.296875,30 Z" id="pause" fill-opacity="0.5" fill="#FFFFFF"></path>
+        </g>
+    </g>
+</svg>
