@@ -26,6 +26,7 @@ class Game extends Component {
 	};
 
 	check = () => {
+		console.log('this.state.number', this.state.number);
 		guess(this.state.gameId, this.state.number).then(data => console.log(data));
 	}
 
