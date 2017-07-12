@@ -5,7 +5,7 @@ const base = 'http://65e7d620.ngrok.io/games';
 window.id = uniqueId('ocqd_');
 
 
-export const guess = (id, number) => {
+export const guess = (id, number) =>
 	axios({
 		method: 'POST',
 		url: `${base}/${id}/guess`,
@@ -16,9 +16,9 @@ export const guess = (id, number) => {
 			number
 		}
 	}).then(data => data.guessStatus);
-};
 
-export const getResults = (id) => {
+
+export const getResults = (id) =>
 	axios({
 		method: 'GET',
 		url: `${base}/${id}`,
@@ -26,7 +26,7 @@ export const getResults = (id) => {
 			 username: window.id
 		}
 	}).then(data => data.game);
-};
+
 
 export const createGame = () =>
 	axios({
@@ -35,5 +35,4 @@ export const createGame = () =>
 		headers: {
 			username: window.id
 		}
-	})
-		.then(data => data.gameId);
+	}).then(data => data.gameId);

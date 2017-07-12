@@ -6,35 +6,35 @@ import style from './style';
 import Exit from '../../assets/icons/exit.svg';
 import Pause from '../../assets/icons/pause.svg';
 import SoundOn from '../../assets/icons/sound-on.svg';
-import { createGame } from '../../lib/game';
+import { createGame, guess } from '../../lib/game';
 
 class Game extends Component {
 
-	// gets called when this route is navigated to
-	componentDidMount() {
-		createGame();
+	state = {
+		number: null,
+		gameId: null
 	}
 
-	// gets called just before navigating away from the route
-	componentWillUnmount() {
-		clearInterval(this.timer);
+	// gets called when this route is navigated to
+	componentDidMount() {
+		createGame().then(gameId => this.setState({ gameId }));
 	}
 
 	// update the current time
-	updateTime = () => {
-		this.setState({ time: Date.now() });
+	setNumber = (e) => {
+		this.setState({ number: e.target.value });
 	};
 
-	increment = () => {
-		this.setState({ count: this.state.count+1 });
-	};
+	check = () => {
+		guess(this.state.gameId, this.state.number).then(data => console.log(data));
+	}
 
 	// Note: `user` comes from the URL, courtesy of our router
 	render() {
 		return (
 			<div class={style.profile}>
-				<Input />
-				<Button clickHandler={console.log('button clicked!!!')} buttonText="Submeter"/>
+				<Input onChange={this.setNumber} />
+				<Button clickHandler={this.check} buttonText="Submeter" />
 				<div className={style.controlButtonsContainer} >
 					<ControlButton clickHandler={console.log('play music')}>
 						<img src={SoundOn} alt="Play" />
