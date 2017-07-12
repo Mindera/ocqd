@@ -3,6 +3,7 @@ import { Router } from 'preact-router';
 
 import Home from '../routes/home/index';
 import Game from '../routes/game/index';
+import Win from '../routes/win/index';
 
 export default class App extends Component {
 
@@ -20,6 +21,7 @@ export default class App extends Component {
 				<Router onChange={this.handleRoute}>
 					<Home path="/" />
 					<Game path="/game" />
+					<Win path="/win" />
 				</Router>
 			</div>
 		);
