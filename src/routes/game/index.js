@@ -1,5 +1,11 @@
 import { h, Component } from 'preact';
+import Input from '../../components/Input';
+import Button from '../../components/Button';
+import ControlButton from '../../components/ControlButton';
 import style from './style';
+import Exit from '../../assets/icons/exit.svg';
+import Pause from '../../assets/icons/pause.svg';
+import SoundOn from '../../assets/icons/sound-on.svg';
 
 export default class Game extends Component {
 	state = {
@@ -41,6 +47,19 @@ export default class Game extends Component {
 					{' '}
 					Clicked {count} times.
 				</p>
+				<Input />
+				<Button clickHandler={console.log('button clicked!!!')} buttonText="Submeter"/>
+				<div className={style.controlButtonsContainer} >
+					<ControlButton clickHandler={console.log('play music')}>
+						<img src={SoundOn} alt="Play" />
+					</ControlButton>
+					<ControlButton clickHandler={console.log('pause music')}>
+						<img src={Pause} alt="Pause" />
+					</ControlButton>
+					<ControlButton clickHandler={console.log('Exit!')}>
+						<img src={Exit} alt="Exit" />
+					</ControlButton>
+				</div>
 			</div>
 		);
 	}
