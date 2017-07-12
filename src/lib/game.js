@@ -35,4 +35,4 @@ export const createGame = () =>
 		headers: {
 			username: window.id
 		}
-	}).then(data => data.gameId);
+	}).then(response => response.data.gameId);
